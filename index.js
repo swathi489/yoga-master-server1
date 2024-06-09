@@ -26,10 +26,11 @@ const { FirebaseAppProvider } = require('reactfire');
 const firebaseConfig = require('./firebaseConfig');
 
 const corsOptions = {
-    origin: 'https://yoga-master-final-ktggujsuh-swathi-ranis-projects.vercel.app', 
+    origin: ['http://localhost:5173', 'https://yoga-master-final-ktggujsuh-swathi-ranis-projects.vercel.app'],
     credentials: true,
     optionSuccessStatus: 200
 };
+
 app.use(cors(corsOptions));
 
 const port = process.env.PORT || 3000;
