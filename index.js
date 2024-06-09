@@ -1,3 +1,20 @@
+// const express = require('express');
+// const app = express();
+// const cors = require('cors');
+// require('dotenv').config();
+// const stripe = require("stripe")(process.env.PAYMENT_SECRET);
+// const jwt = require('jsonwebtoken');
+// const { MongoClient, ObjectId, ServerApiVersion } = require('mongodb');
+// const { FirebaseAppProvider } = require('reactfire');
+// const firebaseConfig = require('./firebaseConfig'); 
+// const port = process.env.PORT || 3000;
+// app.use(express.json());
+// app.use(express.urlencoded({ extended: true }));
+
+// // Middleware
+// app.use(cors({
+//     origin: 'http://localhost:5173',
+// }));
 const express = require('express');
 const app = express();
 const cors = require('cors');
@@ -6,15 +23,22 @@ const stripe = require("stripe")(process.env.PAYMENT_SECRET);
 const jwt = require('jsonwebtoken');
 const { MongoClient, ObjectId, ServerApiVersion } = require('mongodb');
 const { FirebaseAppProvider } = require('reactfire');
-const firebaseConfig = require('./firebaseConfig'); 
-const port = process.env.PORT || 3000;
-app.use(express.json());
-app.use(express.urlencoded({ extended: true }));
+const firebaseConfig = require('./firebaseConfig');
 
-// Middleware
-app.use(cors({
-    origin: 'http://localhost:5173',
-}));
+const corsOptions = {
+    origin: 'https://yoga-master-final-ktggujsuh-swathi-ranis-projects.vercel.app', 
+    credentials: true,
+    optionSuccessStatus: 200
+};
+app.use(cors(corsOptions));
+
+const port = process.env.PORT || 3000;
+app.use(express.urlencoded({ extended: true }));
+app.use(express.json());
+
+
+
+
 
 // Firebase initialization
 const startFirebase = async () => {
