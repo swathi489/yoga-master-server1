@@ -7,18 +7,14 @@ const jwt = require('jsonwebtoken');
 const { MongoClient, ObjectId, ServerApiVersion } = require('mongodb');
 const { FirebaseAppProvider } = require('reactfire');
 const firebaseConfig = require('./firebaseConfig'); 
-
-const corsOptions ={
-    origin: 'https://yoga-master-final-ashen.vercel.app', 
-    credentials: true,
-    optionSuccessStatus: 200
-};
-
-app.use(cors(corsOptions)); // Use cors middleware with the specified options
-
 const port = process.env.PORT || 3000;
-app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
+
+// Middleware
+app.use(cors({
+    origin: 'http://localhost:5173',
+}));
 
 // Firebase initialization
 const startFirebase = async () => {
