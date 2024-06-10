@@ -13,31 +13,8 @@ app.use(express.urlencoded({ extended: true }));
 
 // Middleware
 app.use(cors({
-    origin: 'http://localhost:5173',
+    origin: ['http://localhost:5173', 'https://yoga-master-final-ashen.vercel.app'],
 }));
-// const express = require('express');
-// const app = express();
-// const cors = require('cors');
-// require('dotenv').config();
-// const stripe = require("stripe")(process.env.PAYMENT_SECRET);
-// const jwt = require('jsonwebtoken');
-// const { MongoClient, ObjectId, ServerApiVersion } = require('mongodb');
-// const { FirebaseAppProvider } = require('reactfire');
-// const firebaseConfig = require('./firebaseConfig');
-
-// const corsOptions = {
-//     origin: ['http://localhost:5173', 'https://yoga-master-final-ashen.vercel.app'],
-//     credentials: true,
-//     optionsSuccessStatus: 200 // For legacy browser support
-// };
-
-// const port = process.env.PORT || 3000;
-// app.use(express.urlencoded({ extended: true }));
-// app.use(express.json());
-
-
-
-
 
 // Firebase initialization
 const startFirebase = async () => {
